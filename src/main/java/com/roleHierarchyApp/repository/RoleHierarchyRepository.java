@@ -67,4 +67,16 @@ public class RoleHierarchyRepository {
 		et.commit();
 		
 	}
+
+	public int getCount(String name) {
+		int count=0;
+		Query q = em.createQuery("select s from Staff s where name = :name");
+		q.setParameter("name", name);
+		Staff s = ((Staff) q.getResultList().get(0));
+		while(s.getReportingRole()!=null) {
+			count++;
+			s=getRepoRole(s.getReportingRole());
+		}
+		return count;
+	}
 }
