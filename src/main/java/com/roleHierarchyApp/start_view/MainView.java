@@ -5,6 +5,7 @@ import java.util.Scanner;
 import com.roleHierarchyApp.add_user.AddUserView;
 import com.roleHierarchyApp.create_role.CreateRoleView;
 import com.roleHierarchyApp.delete_role.DeleteRoleView;
+import com.roleHierarchyApp.delete_user.DeleteUserView;
 import com.roleHierarchyApp.display_user_and_sub_user.DisplaySubUserView;
 
 public class MainView {
@@ -16,7 +17,7 @@ public class MainView {
 		AddUserView addUserView = new AddUserView();
 		createRoleView.addStaff(true);
 		outer:while (true) {
-			System.out.println("1.Add Sub role\n2.Display Role\n3.Display Users\n4.Delete Role\n5.Add User\n6.Display User And Sub User\n7.Exit");
+			System.out.println("1.Add Sub role\n2.Display Role\n3.Display Users\n4.Delete Role\n5.Add User\n6.Display User And Sub User\n7.Delete User\n8.Exit");
 			switch (sc.nextInt()) {
 			case 1:{
 				createRoleView.addStaff(false);
@@ -24,6 +25,10 @@ public class MainView {
 			}
 			case 7:{
 				break outer;
+			}
+			case 8:{
+				new DeleteUserView().deleteUser();
+				break;
 			}
 			case 2:{
 				createRoleView.getRoles();

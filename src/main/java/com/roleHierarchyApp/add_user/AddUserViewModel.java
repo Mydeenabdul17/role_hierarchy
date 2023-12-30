@@ -17,7 +17,7 @@ public class AddUserViewModel {
 	}
 
 	public void setName(Staff s) {
-		repository.addStaff(s);
+		repository.changeStaff(s);
 	}
 	
 }

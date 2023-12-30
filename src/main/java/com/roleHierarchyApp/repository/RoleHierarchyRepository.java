@@ -58,4 +58,13 @@ public class RoleHierarchyRepository {
 		Query q = em.createQuery("select s from Staff s");
 		return q.getResultList();
 	}
+
+	public void changeStaff(Staff staff2) {
+		EntityTransaction et = em.getTransaction();
+		
+		et.begin();
+		em.merge(staff2);
+		et.commit();
+		
+	}
 }
