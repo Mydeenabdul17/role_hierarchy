@@ -53,4 +53,9 @@ public class RoleHierarchyRepository {
 		em.persist(tRole);
 		et.commit();
 	}
+
+	public List<Staff> getAllStaff() {
+		Query q = em.createQuery("select s from Staff s");
+		return q.getResultList();
+	}
 }

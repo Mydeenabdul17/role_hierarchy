@@ -42,4 +42,11 @@ public class CreateRoleView {
 		}
 		System.out.println();
 	}
+	public void getUsers() {
+		List<Staff> staff = model.getRoles();
+		for (Staff staff2 : staff) {
+			System.out.print(staff2.getRole()+",");
+		}
+		System.out.println();
+	}
 }
