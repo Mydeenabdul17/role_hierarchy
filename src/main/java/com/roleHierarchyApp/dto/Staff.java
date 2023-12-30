@@ -15,7 +15,7 @@ public class Staff {
 	private int id;
 	private String name;
 	private String role;
-	private String ReportingRole;
+	private String reportingRole;
 	public int getId() {
 		return id;
 	}
@@ -35,10 +35,10 @@ public class Staff {
 		this.role = role;
 	}
 	public String getReportingRole() {
-		return ReportingRole;
+		return reportingRole;
 	}
 	public void setReportingRole(String reportingRole) {
-		ReportingRole = reportingRole;
+		this.reportingRole = reportingRole;
 	}
 	
 }

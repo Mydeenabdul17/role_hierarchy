@@ -33,8 +33,9 @@ public class RoleHierarchyRepository {
 		em.persist(s);
 		et.commit();
 	}
-	public List getStaff() {
-		Query q = em.createQuery("select s from Staff s");
+	public List getStaff(String role) {
+		Query q = em.createQuery("select s from Staff s where reportingRole = :reportingRole");
+		q.setParameter("reportingRole", role);
 		return q.getResultList();
 	}
 }
