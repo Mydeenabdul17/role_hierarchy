@@ -38,4 +38,19 @@ public class RoleHierarchyRepository {
 		q.setParameter("reportingRole", role);
 		return q.getResultList();
 	}
+
+	public Staff getRepoRole(String aRole) {
+		Query q = em.createQuery("select s from Staff s where role = :role");
+		q.setParameter("role", aRole);
+		return ((Staff) q.getResultList().get(0));
+	}
+
+	public void changeRepoRole(Staff tRole, String string) {
+		EntityTransaction et = em.getTransaction();
+		tRole.setReportingRole(string);
+		
+		et.begin();
+		em.persist(tRole);
+		et.commit();
+	}
 }

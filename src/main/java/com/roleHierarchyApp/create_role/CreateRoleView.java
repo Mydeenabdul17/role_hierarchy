@@ -40,5 +40,6 @@ public class CreateRoleView {
 		for (String string : staff) {
 			System.out.print(string+" ");
 		}
+		System.out.println();
 	}
 }
