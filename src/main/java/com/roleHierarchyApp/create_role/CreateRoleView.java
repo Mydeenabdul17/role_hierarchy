@@ -36,9 +36,9 @@ public class CreateRoleView {
 //		}
 	}
 	public void getRoles() {
-		List<String> staff = model.getRoles();
-		for (String string : staff) {
-			System.out.print(string+" ");
+		List<Staff> staff = model.getRoles();
+		for (Staff staff2 : staff) {
+			System.out.println(staff2.getName()+"-"+staff2.getRole());
 		}
 		System.out.println();
 	}
