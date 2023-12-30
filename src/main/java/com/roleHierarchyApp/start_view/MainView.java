@@ -8,11 +8,12 @@ public class MainView {
 
 	Scanner sc = new Scanner(System.in);
 	public void start() {
+		new CreateRoleView().addStaff(true);
 		outer:while (true) {
-			System.out.println("1.create role\n2.Exit");
+			System.out.println("1.Add Sub role\n2.Exit");
 			switch (sc.nextInt()) {
 			case 1:{
-				new CreateRoleView().addStaff();
+				new CreateRoleView().addStaff(false);
 				break;
 			}
 			case 2:{
@@ -27,7 +28,8 @@ public class MainView {
 				
 			}
 		}
-		System.out.println("Thank You");
+		new CreateRoleView().getRole();
+		System.out.println("\nThank You");
 	}
 
 }
