@@ -71,9 +71,10 @@ public class RoleHierarchyRepository {
 
 	public int getCount(String name) {
 		int count=0;
-		Query q = em.createQuery("select s from Staff s where name = :name");
-		q.setParameter("name", name);
-		Staff s = ((Staff) q.getResultList().get(0));
+//		Query q = em.createQuery("select s from Staff s where name = :name");
+//		q.setParameter("name", name);
+//		Staff s = ((Staff) q.getResultList().get(0));
+		Staff s = getByName(name);
 		while(s.getReportingRole()!=null) {
 			count++;
 			s=getStaff(s.getReportingRole());
@@ -88,9 +89,10 @@ public class RoleHierarchyRepository {
 	}
 	public List<Staff> getBoss(String name){
 		List<Staff> res = new ArrayList<>();
-		Query q = em.createQuery("select s from Staff s where name = :name");
-		q.setParameter("name", name);
-		Staff s = ((Staff) q.getResultList().get(0));
+//		Query q = em.createQuery("select s from Staff s where name = :name");
+//		q.setParameter("name", name);
+//		Staff s = ((Staff) q.getResultList().get(0));
+		Staff s = getByName(name);
 		res.add(s);
 		while(s.getReportingRole()!=null) {
 			s=getStaff(s.getReportingRole());
