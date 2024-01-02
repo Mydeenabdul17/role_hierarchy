@@ -19,7 +19,7 @@ public class DisplaySubUserViewModel {
 	}
 
 	public List<Staff> getStaff(Staff staff) {
-		return repository.getStaff(staff.getRole());
+		return repository.getStaffByReportingRole(staff.getRole());
 	}
 	
 }

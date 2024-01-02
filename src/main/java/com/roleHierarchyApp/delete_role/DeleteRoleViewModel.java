@@ -15,11 +15,11 @@ public class DeleteRoleViewModel {
 	}
 
 	public void deleteRole(String role, String aRole) {
-		Staff tRole = repository.getRepoRole(aRole);
+		Staff tRole = repository.getStaff(aRole);
 		if(tRole.getReportingRole().equals(role)) {
-			repository.changeRepoRole(tRole,repository.getRepoRole(role).getReportingRole());	
+			repository.changeRepoRole(tRole,repository.getStaff(role).getReportingRole());	
 		}
-		List<Staff> s = repository.getStaff(role);
+		List<Staff> s = repository.getStaffByReportingRole(role);
 		for (Staff staff : s) {
 			repository.changeRepoRole(staff, aRole);
 		}

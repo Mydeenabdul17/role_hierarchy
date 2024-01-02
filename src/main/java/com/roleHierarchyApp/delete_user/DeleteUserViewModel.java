@@ -15,8 +15,8 @@ public class DeleteUserViewModel {
 	}
 
 	public void deleteUser(String name) {
-		Staff current = repository.getRepoRole(name);
-		List<Staff> staff = repository.getStaff(name);
+		Staff current = repository.getByName(name);
+		List<Staff> staff = repository.getStaffByReportingRole(current.getRole());
 		for (Staff staff2 : staff) {
 			staff2.setReportingRole(current.getReportingRole());
 			repository.changeStaff(staff2);

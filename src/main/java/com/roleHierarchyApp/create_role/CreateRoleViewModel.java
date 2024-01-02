@@ -20,15 +20,15 @@ public class CreateRoleViewModel {
 	}
 	public List<Staff> getRoles() {
 		List<Staff> roles = new ArrayList<>();
-		roles.add(RoleHierarchyRepository.getInstance().getRepoRole("CEO"));
-		List<Staff> role = RoleHierarchyRepository.getInstance().getStaff("CEO");
+		roles.add(RoleHierarchyRepository.getInstance().getStaff("CEO"));
+		List<Staff> role = RoleHierarchyRepository.getInstance().getStaffByReportingRole("CEO");
 		Queue<List<Staff>> q = new LinkedList<>();
 		q.offer(role);
 		while(q.size()!=0) {
 			List<Staff> l = q.poll();
 			for (Staff staff : l) {
 				roles.add(staff);
-				List<Staff> temp = RoleHierarchyRepository.getInstance().getStaff(staff.getRole());
+				List<Staff> temp = RoleHierarchyRepository.getInstance().getStaffByReportingRole(staff.getRole());
 				if(temp!=null) {
 					q.offer(temp);
 				}

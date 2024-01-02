@@ -13,7 +13,7 @@ public class AddUserViewModel {
 	}
 
 	public Staff getStaff(String role) {
-		return repository.getRepoRole(role);
+		return repository.getStaff(role);
 	}
 
 	public void setName(Staff s) {

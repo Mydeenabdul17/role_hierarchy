@@ -33,15 +33,15 @@ public class RoleHierarchyRepository {
 		em.persist(s);
 		et.commit();
 	}
-	public List getStaff(String role) {
+	public List getStaffByReportingRole(String role) {
 		Query q = em.createQuery("select s from Staff s where reportingRole = :reportingRole");
 		q.setParameter("reportingRole", role);
 		return q.getResultList();
 	}
 
-	public Staff getRepoRole(String aRole) {
+	public Staff getStaff(String role) {
 		Query q = em.createQuery("select s from Staff s where role = :role");
-		q.setParameter("role", aRole);
+		q.setParameter("role", role);
 		return ((Staff) q.getResultList().get(0));
 	}
 
@@ -75,8 +75,14 @@ public class RoleHierarchyRepository {
 		Staff s = ((Staff) q.getResultList().get(0));
 		while(s.getReportingRole()!=null) {
 			count++;
-			s=getRepoRole(s.getReportingRole());
+			s=getStaff(s.getReportingRole());
 		}
 		return count;
+	}
+	
+	public Staff getByName(String name) {
+		Query q = em.createQuery("select s from Staff s where name = :name");
+		q.setParameter("name", name);
+		return ((Staff) q.getResultList().get(0));
 	}
 }
