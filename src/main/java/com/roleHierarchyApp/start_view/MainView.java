@@ -3,6 +3,7 @@ package com.roleHierarchyApp.start_view;
 import java.util.Scanner;
 
 import com.roleHierarchyApp.add_user.AddUserView;
+import com.roleHierarchyApp.common_boss.CommonBossView;
 import com.roleHierarchyApp.create_role.CreateRoleView;
 import com.roleHierarchyApp.delete_role.DeleteRoleView;
 import com.roleHierarchyApp.delete_user.DeleteUserView;
@@ -19,14 +20,18 @@ public class MainView {
 		AddUserView addUserView = new AddUserView();
 		createRoleView.addStaff(true);
 		outer:while (true) {
-			System.out.println("1.Add Sub role\n2.Display Role\n3.Display Users\n4.Delete Role\n5.Add User\n6.Display User And Sub User\n7.Delete User\n8. Number of users from top\n9.Height of role hierachy\n10.Exit");
+			System.out.println("1.Add Sub role\n2.Display Role\n3.Display Users\n4.Delete Role\n5.Add User\n6.Display User And Sub User\n7.Delete User\n8. Number of users from top\n9.Height of role hierachy\n10.Common boss of users\n11.Exit");
 			switch (sc.nextInt()) {
 			case 1:{
 				createRoleView.addStaff(false);
 				break;
 			}
-			case 10:{
+			case 11:{
 				break outer;
+			}
+			case 10:{
+				new CommonBossView().findBoss();
+				break;
 			}
 			case 9:{
 				new HeightView().findHeight();

@@ -1,5 +1,6 @@
 package com.roleHierarchyApp.repository;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -84,5 +85,17 @@ public class RoleHierarchyRepository {
 		Query q = em.createQuery("select s from Staff s where name = :name");
 		q.setParameter("name", name);
 		return ((Staff) q.getResultList().get(0));
+	}
+	public List<Staff> getBoss(String name){
+		List<Staff> res = new ArrayList<>();
+		Query q = em.createQuery("select s from Staff s where name = :name");
+		q.setParameter("name", name);
+		Staff s = ((Staff) q.getResultList().get(0));
+		res.add(s);
+		while(s.getReportingRole()!=null) {
+			s=getStaff(s.getReportingRole());
+			res.add(s);
+		}
+		return res;
 	}
 }
