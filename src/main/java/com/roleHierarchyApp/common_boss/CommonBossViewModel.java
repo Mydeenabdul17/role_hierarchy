@@ -19,7 +19,7 @@ public class CommonBossViewModel {
 		List<Staff> l2 = repository.getBoss(user2);
 		Staff res=null;
 		int i=l1.size()-1,j=l2.size()-1;
-		while(i>=0||j>=0) {
+		while(i>=0&&j>=0) {
 			if(l1.get(i)==l2.get(j)) {
 				res = l1.get(i);
 			}
